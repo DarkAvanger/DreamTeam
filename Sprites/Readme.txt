@@ -1,1 +1,1 @@
-All video game sprites, classified by Animations, UI, GameSprites.
+All video game sprites, classified by Backgrounds, UI, Character animation and Scenario.
