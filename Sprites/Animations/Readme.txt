@@ -1,1 +1,1 @@
-All videogame animations frame by frame
+Videogame introduction
