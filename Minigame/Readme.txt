@@ -1,1 +1,0 @@
-Minigame using SDL lib.
