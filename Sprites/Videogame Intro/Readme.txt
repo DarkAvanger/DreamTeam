@@ -1,1 +1,0 @@
-Game intro sprites
