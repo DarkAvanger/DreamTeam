@@ -5,6 +5,7 @@ Videogame Development - Project 1 - Our first amazing game
 Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by Pack-In-Video, which was released in Japan in 1993.
 
 ## Key Features
+space -> skip the animation 
 WASD -> move player
  
 ## Developers
