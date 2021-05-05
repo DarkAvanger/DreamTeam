@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollisions.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTextures.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneIntro.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLevel1.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Target.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Path.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="introscreen.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollisions.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTextures.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneIntro.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLevel1.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Source Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Source Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Source Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="p2Point.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="introscreen.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5e6b115c-3489-415f-b8fb-3f446dc3ff17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{348875a3-479b-428b-a595-d3303b22baad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules">
+      <UniqueIdentifier>{b95c07c0-0ebe-44e5-aef7-a3fe2fe9a323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\Core">
+      <UniqueIdentifier>{abfaeeee-f3d7-485b-af08-05be6dae33f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\Gameplay">
+      <UniqueIdentifier>{481f3622-9b3a-4c31-9080-56ad8e2b54c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{cdc22013-7772-49a4-a354-2d1979e49cef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
