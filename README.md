@@ -1,4 +1,4 @@
-# {Project Name}
+# {Super Soukoban}
 Videogame Development - Project 1 - Our first amazing game
 
 ## Description
