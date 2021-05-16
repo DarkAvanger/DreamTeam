@@ -6,13 +6,14 @@ Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by P
 
 ## Key Features
 space -> skip the animation 
+
 WASD -> move player
  
 ## Developers
- - {Sofia Liles} - {Design/QA}
- - {Angel Consola} - {Art}
- - {Hang Xue} - {Code}
- - {Marta Llurba} - {Management}
+ - Sofia Liles - Design/QA
+ - Angel Consola - Art
+ - Hang Xue - Code
+ - Marta Llurba - Management
 
 ## License
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
