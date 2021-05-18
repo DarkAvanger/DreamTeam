@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "SceneLevel1.h"
+#include "SceneLevel2.h"
 #include "ModulePlayer.h"
 
 #include <iostream>

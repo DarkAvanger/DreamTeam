@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "SceneIntro.h"
 #include "SceneLevel1.h"
+#include "SceneLevel2.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
@@ -28,12 +29,13 @@ Application::Application()
 	modules[4] =    screenIntro =   new ScreenIntro(true);
 	modules[5] =	sceneIntro =	new SceneIntro(false);
 	modules[6] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
-	modules[7] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[7] =    sceneLevel_2 =  new SceneLevel2(false);
+	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled
 
-	modules[8] =	collisions =	new ModuleCollisions(true);
-	modules[9] =	fade =			new ModuleFadeToBlack(true);
-	modules[10] =	fonts =			new ModuleFonts(true);
-	modules[11] =	render =		new ModuleRender(true);
+	modules[9] =	collisions =	new ModuleCollisions(true);
+	modules[10] =	fade =			new ModuleFadeToBlack(true);
+	modules[11] =	fonts =			new ModuleFonts(true);
+	modules[12] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()
