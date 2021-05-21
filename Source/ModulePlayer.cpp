@@ -117,7 +117,7 @@ bool ModulePlayer::Start()
 	
 	char lookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/Fonts/score.png", "0123456789", 1);
-
+	scoreFont = App->fonts->Load("Assets/Fonts/score.png", lookupTable, 2);
 	
 
 	return ret;
