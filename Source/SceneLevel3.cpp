@@ -1,4 +1,4 @@
-#include "SceneLevel1.h"
+#include "SceneLevel3.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -13,10 +13,10 @@
 
 #include <iostream>
 
-Box* box1[3] = { nullptr };
-Target* targets1[3] = { nullptr };
+Box* box3[3] = { nullptr };
+Target* targets3[3] = { nullptr };
 
-SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
+SceneLevel3::SceneLevel3(bool startEnabled) : Module(startEnabled)
 {
 	block = { 96,34,30,30 };
 	wall = { 0, 34, 30, 30 };
@@ -26,13 +26,13 @@ SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 	boxondestination = { 32,3,30,30 };
 }
 
-SceneLevel1::~SceneLevel1()
+SceneLevel3::~SceneLevel3()
 {
 
 }
 
 // Load assets
-bool SceneLevel1::Start()
+bool SceneLevel3::Start()
 {
 	LOG("Loading background assets");
 
@@ -59,59 +59,59 @@ bool SceneLevel1::Start()
 
 	App->player->Enable();
 
-	box1[0] = new Box({ 120,120 }, App->collisions->AddCollider({ 120,120,30,30}, Collider::Type::BOX_CENTER));
-	box1[1] = new Box({ 90,180 }, App->collisions->AddCollider({ 90,180,30,30 }, Collider::Type::BOX_CENTER));
-	box1[2] = new Box({ 180,150 }, App->collisions->AddCollider({ 180,150,30,30 }, Collider::Type::BOX_CENTER));
+	box3[0] = new Box({ 120,120 }, App->collisions->AddCollider({ 120,120,30,30 }, Collider::Type::BOX_CENTER));
+	box3[1] = new Box({ 90,180 }, App->collisions->AddCollider({ 90,180,30,30 }, Collider::Type::BOX_CENTER));
+	box3[2] = new Box({ 180,150 }, App->collisions->AddCollider({ 180,150,30,30 }, Collider::Type::BOX_CENTER));
 
-	targets1[0] = new Target({ 150,60,30,30 });
-	targets1[1] = new Target({ 180,60,30,30 });
-	targets1[2] = new Target({ 210,60,30,30 });
+	targets3[0] = new Target({ 150,60,30,30 });
+	targets3[1] = new Target({ 180,60,30,30 });
+	targets3[2] = new Target({ 210,60,30,30 });
 
 	for (int i = 0; i < 3; i++) {
-		box1[i]->Start();
+		box3[i]->Start();
 	}
 	return ret;
 }
 
-Update_Status SceneLevel1::PreUpdate()
+Update_Status SceneLevel3::PreUpdate()
 {
-	for (int i = 0; i < 3; i++) 
+	for (int i = 0; i < 3; i++)
 	{
-		box1[i]->PreUpdate();
+		box3[i]->PreUpdate();
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-Update_Status SceneLevel1::Update()
+Update_Status SceneLevel3::Update()
 {
 	App->render->camera.x += 0;
 
 	completeCount = 0;
 	for (int i = 0; i < 3; i++)
 	{
-		box1[i]->Update();
+		box3[i]->Update();
 
-		if (targets1[i]->isComplete)
+		if (targets3[i]->isComplete)
 		{
 			completeCount++;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 	}
 	//printf("%d\n", completeCount);
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 // Update: draw background
-Update_Status SceneLevel1::PostUpdate()
+Update_Status SceneLevel3::PostUpdate()
 {
-	for (int i = 0; i < 3; i++) 
+	for (int i = 0; i < 3; i++)
 	{
-		box1[i]->PostUpdate();
-		targets1[i]->PostUpdate();
+		box3[i]->PostUpdate();
+		targets3[i]->PostUpdate();
 	}
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
@@ -141,7 +141,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(scoreTexture, 220, 30, NULL);
 
 	for (int i = 0; i < 3; i++) {
-		App->render->Blit(bgTexture, box1[i]->boxPosition.x, box1[i]->boxPosition.y, box1[i]->getRenderRect());
+		App->render->Blit(bgTexture, box3[i]->boxPosition.x, box3[i]->boxPosition.y, box3[i]->getRenderRect());
 	}
 	if (completeCount == 3) {
 		App->render->Blit(winTexture, 110, 100, NULL);
@@ -152,48 +152,45 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
-bool SceneLevel1::CleanUp()
+bool SceneLevel3::CleanUp()
 {
 	App->player->Disable();
 
 	// Clean boxs & targets
 	for (int i = 0; i < 3; i++)
 	{
-		if (box1[i] != nullptr)
+		if (box3[i] != nullptr)
 		{
-			delete box1[i];
-			box1[i] = nullptr;
+			delete box3[i];
+			box3[i] = nullptr;
 		}
-		if(targets1[i] != nullptr)
+		if (targets3[i] != nullptr)
 		{
-			delete targets1[i];
-			targets1[i] = nullptr;
+			delete targets3[i];
+			targets3[i] = nullptr;
 		}
 	}
 	App->collisions->CleanUp();
 	return true;
 }
-void SceneLevel1::OnCollision(Collider* c1, Collider* c2) {
+void SceneLevel3::OnCollision(Collider* c1, Collider* c2) {
 	for (int i = 0; i < 3; i++)
 	{
-		if (box1[i] != nullptr) {
-			if (c1 == box1[i]->colliderBox ||
-				c1 == box1[i]->colliderBoxUp ||
-				c1 == box1[i]->colliderBoxDown ||
-				c1 == box1[i]->colliderBoxLeft ||
-				c1 == box1[i]->colliderBoxRight)
+		if (box3[i] != nullptr) {
+			if (c1 == box3[i]->colliderBox ||
+				c1 == box3[i]->colliderBoxUp ||
+				c1 == box3[i]->colliderBoxDown ||
+				c1 == box3[i]->colliderBoxLeft ||
+				c1 == box3[i]->colliderBoxRight)
 			{
-				box1[i]->OnCollision(c1, c2);
+				box3[i]->OnCollision(c1, c2);
 			}
 		}
-		if (targets1[i] != nullptr) {
-			if (c1 == targets1[i]->col)
+		if (targets3[i] != nullptr) {
+			if (c1 == targets3[i]->col)
 			{
-				targets1[i]->OnCollision(c2);
+				targets3[i]->OnCollision(c2);
 			}
 		}
 	}
 }
-
-
-
