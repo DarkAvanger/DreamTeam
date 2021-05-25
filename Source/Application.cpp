@@ -12,6 +12,7 @@
 #include "SceneLevel3.h"
 #include "SceneLevel4.h"
 #include "SceneLevel5.h"
+#include "SceneLevel6.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
@@ -36,12 +37,13 @@ Application::Application()
 	modules[8] =    sceneLevel_3 =  new SceneLevel3(false);
 	modules[9] =    sceneLevel_4 =  new SceneLevel4(false);
 	modules[10] =   sceneLevel_5 = new SceneLevel5(false);
-	modules[11] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[11] =   sceneLevel_6 = new SceneLevel6(false);
+	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled
 
-	modules[12] =	collisions =	new ModuleCollisions(true);
-	modules[13] =	fade =			new ModuleFadeToBlack(true);
-	modules[14] =	fonts =			new ModuleFonts(true);
-	modules[15] =	render =		new ModuleRender(true);
+	modules[13] =	collisions =	new ModuleCollisions(true);
+	modules[14] =	fade =			new ModuleFadeToBlack(true);
+	modules[15] =	fonts =			new ModuleFonts(true);
+	modules[16] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

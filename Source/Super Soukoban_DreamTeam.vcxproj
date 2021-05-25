@@ -101,6 +101,7 @@
     <ClInclude Include="SceneLevel3.h" />
     <ClInclude Include="SceneLevel4.h" />
     <ClInclude Include="SceneLevel5.h" />
+    <ClInclude Include="SceneLevel6.h" />
     <ClInclude Include="Target.h" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +128,7 @@
     <ClCompile Include="SceneLevel3.cpp" />
     <ClCompile Include="SceneLevel4.cpp" />
     <ClCompile Include="SceneLevel5.cpp" />
+    <ClCompile Include="SceneLevel6.cpp" />
     <ClCompile Include="Target.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
