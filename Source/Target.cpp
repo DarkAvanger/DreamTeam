@@ -1,9 +1,11 @@
 #include "Target.h"
 
-Target::Target(SDL_Rect rect)
+Target::Target(SDL_Rect rect, Module* mod)
 {
 	this->rect = rect;
-	col = App->collisions->AddCollider(rect, Collider::TARGET, App->sceneLevel_1);
+	level = mod;
+	col = App->collisions->AddCollider(rect, Collider::TARGET, level);
+
 }
 
 Target::~Target()

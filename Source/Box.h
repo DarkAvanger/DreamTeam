@@ -13,7 +13,7 @@ class Box
 {
 public:
 	// Constructor
-	Box(iPoint pos, Collider* col);
+	Box(iPoint pos, Collider* col, Module* mod);
 
 	// Destructor
 	~Box();
@@ -43,6 +43,7 @@ public:
 	bool canMoveDirBox[4] = { false };
 	bool crashWall[4] = { false };
 	
+	Module* level = nullptr;
 	// The Box's collider
 	Collider* colliderBox = nullptr;
 	Collider* colliderBoxUp = nullptr;

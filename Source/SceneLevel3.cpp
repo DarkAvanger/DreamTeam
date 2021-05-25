@@ -13,8 +13,8 @@
 
 #include <iostream>
 
-Box* box3[3] = { nullptr };
-Target* targets3[3] = { nullptr };
+Box* box3[5] = { nullptr };
+Target* targets3[5] = { nullptr };
 
 SceneLevel3::SceneLevel3(bool startEnabled) : Module(startEnabled)
 {
@@ -59,15 +59,22 @@ bool SceneLevel3::Start()
 
 	App->player->Enable();
 
-	box3[0] = new Box({ 120,120 }, App->collisions->AddCollider({ 120,120,30,30 }, Collider::Type::BOX_CENTER));
-	box3[1] = new Box({ 90,180 }, App->collisions->AddCollider({ 90,180,30,30 }, Collider::Type::BOX_CENTER));
-	box3[2] = new Box({ 180,150 }, App->collisions->AddCollider({ 180,150,30,30 }, Collider::Type::BOX_CENTER));
+	App->player->position.x = 90;
+	App->player->position.y = 90;
 
-	targets3[0] = new Target({ 150,60,30,30 });
-	targets3[1] = new Target({ 180,60,30,30 });
-	targets3[2] = new Target({ 210,60,30,30 });
+	box3[0] = new Box({ 120,90 }, App->collisions->AddCollider({ 120,90,30,30 }, Collider::Type::BOX_CENTER),this);
+	box3[1] = new Box({ 120,120 }, App->collisions->AddCollider({ 120,120,30,30 }, Collider::Type::BOX_CENTER),this);
+	box3[2] = new Box({ 150,150 }, App->collisions->AddCollider({ 150,150,30,30 }, Collider::Type::BOX_CENTER),this);
+	box3[3] = new Box({ 120,180 }, App->collisions->AddCollider({ 120,180,30,30 }, Collider::Type::BOX_CENTER), this);
+	box3[4] = new Box({ 150,210 }, App->collisions->AddCollider({ 150,210,30,30 }, Collider::Type::BOX_CENTER), this);
 
-	for (int i = 0; i < 3; i++) {
+	targets3[0] = new Target({ 90,180,30,30 },this);
+	targets3[1] = new Target({ 90,210,30,30 },this);
+	targets3[2] = new Target({ 120,210,30,30 },this);
+	targets3[3] = new Target({ 150,210,30,30 }, this);
+	targets3[4] = new Target({ 180,210,30,30 }, this);
+
+	for (int i = 0; i < 5; i++) {
 		box3[i]->Start();
 	}
 	return ret;
@@ -75,7 +82,7 @@ bool SceneLevel3::Start()
 
 Update_Status SceneLevel3::PreUpdate()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		box3[i]->PreUpdate();
 	}
@@ -88,7 +95,7 @@ Update_Status SceneLevel3::Update()
 	App->render->camera.x += 0;
 
 	completeCount = 0;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		box3[i]->Update();
 
@@ -99,7 +106,7 @@ Update_Status SceneLevel3::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
 	}
 	//printf("%d\n", completeCount);
 	return Update_Status::UPDATE_CONTINUE;
@@ -108,7 +115,7 @@ Update_Status SceneLevel3::Update()
 // Update: draw background
 Update_Status SceneLevel3::PostUpdate()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		box3[i]->PostUpdate();
 		targets3[i]->PostUpdate();
@@ -140,10 +147,10 @@ Update_Status SceneLevel3::PostUpdate()
 	}
 	App->render->Blit(scoreTexture, 220, 30, NULL);
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 5; i++) {
 		App->render->Blit(bgTexture, box3[i]->boxPosition.x, box3[i]->boxPosition.y, box3[i]->getRenderRect());
 	}
-	if (completeCount == 3) {
+	if (completeCount == 5) {
 		App->render->Blit(winTexture, 110, 100, NULL);
 		//App->audio->StopMusic();
 		//App->audio->CleanUp();
@@ -157,7 +164,7 @@ bool SceneLevel3::CleanUp()
 	App->player->Disable();
 
 	// Clean boxs & targets
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		if (box3[i] != nullptr)
 		{
@@ -174,7 +181,7 @@ bool SceneLevel3::CleanUp()
 	return true;
 }
 void SceneLevel3::OnCollision(Collider* c1, Collider* c2) {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		if (box3[i] != nullptr) {
 			if (c1 == box3[i]->colliderBox ||

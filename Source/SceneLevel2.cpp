@@ -8,6 +8,8 @@
 #include "ModulePlayer.h"
 #include "Box.h"
 #include "Target.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleInput.h"
 
 #include <iostream>
 
@@ -55,13 +57,16 @@ bool SceneLevel2::Start()
 
 	App->player->Enable();
 
-	box2[0] = new Box({ 90,90 }, App->collisions->AddCollider({ 90,90,30,30 }, Collider::Type::BOX_CENTER));
-	box2[1] = new Box({ 120,90}, App->collisions->AddCollider({ 120,90,30,30 }, Collider::Type::BOX_CENTER));
-	box2[2] = new Box({ 90,120 }, App->collisions->AddCollider({ 90,120,30,30 }, Collider::Type::BOX_CENTER));
+	App->player->position.x = 60;
+	App->player->position.y = 60;
 
-	targets2[0] = new Target({ 240,120,30,30 });
-	targets2[1] = new Target({ 240,150,30,30 });
-	targets2[2] = new Target({ 240,180,30,30 });
+	box2[0] = new Box({ 90,90 }, App->collisions->AddCollider({ 90,90,30,30 }, Collider::Type::BOX_CENTER),this);
+	box2[1] = new Box({ 120,90}, App->collisions->AddCollider({ 120,90,30,30 }, Collider::Type::BOX_CENTER),this);
+	box2[2] = new Box({ 90,120 }, App->collisions->AddCollider({ 90,120,30,30 }, Collider::Type::BOX_CENTER),this);
+
+	targets2[0] = new Target({ 240,120,30,30 },this);
+	targets2[1] = new Target({ 240,150,30,30 },this);
+	targets2[2] = new Target({ 240,180,30,30 },this);
 
 	for (int i = 0; i < 3; i++) {
 		box2[i]->Start();
@@ -91,6 +96,10 @@ Update_Status SceneLevel2::Update()
 		{
 			completeCount++;
 		}
+	}
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
 	}
 	//printf("%d\n", completeCount);
 	return Update_Status::UPDATE_CONTINUE;
@@ -156,6 +165,7 @@ bool SceneLevel2::CleanUp()
 			targets2[i] = nullptr;
 		}
 	}
+	App->collisions->CleanUp();
 
 	return true;
 }

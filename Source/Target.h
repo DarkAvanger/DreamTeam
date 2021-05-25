@@ -17,9 +17,10 @@ public:
 
 public:
 
-	Target(SDL_Rect rect);
+	Target(SDL_Rect rect, Module* mod);
 	~Target();
 
+	Module* level = nullptr;
 	void PostUpdate();
 
 	void OnCollision(Collider* col);

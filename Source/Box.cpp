@@ -13,11 +13,12 @@
 
 #include <iostream>
 
-Box::Box(iPoint pos, Collider* col)
+Box::Box(iPoint pos, Collider* col, Module * mod)
 {
 	boxPosition = pos;
 	colliderBox = col;
 	colliderPlayer = App->player->colliderPlayer;
+	level = mod;
 }
 
 Box::~Box()
@@ -29,10 +30,10 @@ bool Box::Start()
 {
 	bool ret = true;
 
-	colliderBoxUp = App->collisions->AddCollider({ boxPosition.x, boxPosition.y - 30, 30, 30 }, Collider::Type::BOX, App->sceneLevel_1);
-	colliderBoxDown = App->collisions->AddCollider({ boxPosition.x, boxPosition.y + 30, 30, 30 }, Collider::Type::BOX, App->sceneLevel_1);
-	colliderBoxLeft = App->collisions->AddCollider({ boxPosition.x - 30, boxPosition.y, 30, 30 }, Collider::Type::BOX, App->sceneLevel_1);
-	colliderBoxRight = App->collisions->AddCollider({ boxPosition.x + 30, boxPosition.y, 30, 30 }, Collider::Type::BOX, App->sceneLevel_1);
+	colliderBoxUp = App->collisions->AddCollider({ boxPosition.x, boxPosition.y - 30, 30, 30 }, Collider::Type::BOX, level);
+	colliderBoxDown = App->collisions->AddCollider({ boxPosition.x, boxPosition.y + 30, 30, 30 }, Collider::Type::BOX, level);
+	colliderBoxLeft = App->collisions->AddCollider({ boxPosition.x - 30, boxPosition.y, 30, 30 }, Collider::Type::BOX, level);
+	colliderBoxRight = App->collisions->AddCollider({ boxPosition.x + 30, boxPosition.y, 30, 30 }, Collider::Type::BOX, level);
 
 	return ret;
 }
