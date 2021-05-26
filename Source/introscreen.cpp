@@ -8,6 +8,8 @@
 #include "ModuleFadeToBlack.h"
 #include "introscreen.h"
 
+#include <iostream>
+
 ScreenIntro::ScreenIntro(bool startEnabled) : Module(startEnabled)
 {
 
@@ -39,7 +41,7 @@ Update_Status ScreenIntro::Update()
 	logo.Update();
 	
 	
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 120);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 220);
 	
 	return Update_Status::UPDATE_CONTINUE;
 }

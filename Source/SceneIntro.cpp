@@ -7,6 +7,8 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
+#include <iostream>
+
 SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 {
 	int x = 2;
