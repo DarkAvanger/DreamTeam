@@ -144,6 +144,10 @@ Update_Status SceneLevel5::PostUpdate()
 	}
 	if (completeCount == 3) {
 		App->render->Blit(winTexture, 110, 100, NULL);
+		if (playingmusic) {
+			App->audio->PlayMusic("Assets/Music/StageComplete.ogg", 0);
+			playingmusic = false;
+		}
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }

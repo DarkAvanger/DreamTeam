@@ -74,6 +74,7 @@ public:
 
 	int completeCount = 0;
 	int score = 0;
+	bool playingmusic = true;
 };
 
 #endif
