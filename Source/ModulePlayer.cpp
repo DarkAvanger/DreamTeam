@@ -117,7 +117,6 @@ bool ModulePlayer::Start()
 	
 	char lookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/Fonts/score.png", "0123456789", 1);
-	scoreFont = App->fonts->Load("Assets/Fonts/score.png", lookupTable, 2);
 	
 
 	return ret;
@@ -212,16 +211,16 @@ Update_Status ModulePlayer::PostUpdate()
 			canMoveDir[i] = true;
         }
 
-	// Draw UI (score) --------------------------------------
-	sprintf_s(scoreText, 10, "%7d", score);
+		// Draw UI (score) --------------------------------------
+		sprintf_s(scoreText, 10, "%7d", score);
 
-	// TODO 3: Blit the text of the score at the bottom of the screen
+		// TODO 3: Blit the text of the score at the bottom of the screen
 
-	App->fonts->BlitText(290, 40, scoreFont, "01");
+		App->fonts->BlitText(305, 40, scoreFont, "01");
 
-	App->fonts->BlitText(273, 55, scoreFont, scoreText);
+		App->fonts->BlitText(288, 55, scoreFont, "0000");
 
-	App->fonts->BlitText(273, 70, scoreFont, "7890");
+		App->fonts->BlitText(288, 70, scoreFont, "0090");
 
 	return Update_Status::UPDATE_CONTINUE;
 }
