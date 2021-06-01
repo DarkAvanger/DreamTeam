@@ -36,6 +36,7 @@ public:
 	Animation* currentAnimation = nullptr;
 
 	Animation logo;
+	Animation Intro;
 };
 
 #endif

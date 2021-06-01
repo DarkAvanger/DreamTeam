@@ -18,7 +18,7 @@ Target* targets1[3] = { nullptr };
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
-	block = { 96,34,30,30 };
+	block = { 96,33,30,30 };
 	wall = { 0, 34, 30, 30 };
 	floor = { 32, 34, 30, 30 };
 	destination = { 64, 34, 30, 30 };

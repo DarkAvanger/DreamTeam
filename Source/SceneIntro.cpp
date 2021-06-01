@@ -13,17 +13,42 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 {
 	int x = 2;
 	int y = 2;
-	for (int i = 0; i < 12; i++)
+
+	//logo
+	for (int k = 0; k < 15; k++)
+	{
+		logo.PushBack({ x + 258 * k, y , 256, 224 });
+	}
+    logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.loop = false;
+	logo.speed = 0.15f;
+
+    //intro
+	for (int l = 1; l < 15; l++)
+	{
+		Intro.PushBack({ x + 258 * l, y + 226, 256, 224 });
+	}
+	for (int i = 2; i < 12; i++)
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			logo.PushBack({ x + 258 * j, y + 226 * i, 256, 224 });
+			Intro.PushBack({ x + 258 * j, y + 226 * i, 256, 224 });
 		}
 	}
-	logo.PushBack({ x, y + 226 * 12, 256, 224 });
+	Intro.PushBack({ x, y + 226 * 12, 256, 224 });
 
-	logo.loop = false;
-	logo.speed = 0.08f;
+	Intro.loop = false;
+	Intro.speed = 0.08f;
 }
 
 SceneIntro::~SceneIntro()
@@ -50,9 +75,12 @@ bool SceneIntro::Start()
 Update_Status SceneIntro::Update()
 {
 	logo.Update();
+	if (logo.HasFinished()) {
+		Intro.Update();
+	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -61,7 +89,9 @@ Update_Status SceneIntro::Update()
 Update_Status SceneIntro::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(bgTexture, 0, 0, &(logo.GetCurrentFrame()), false, 0.85f);
+	if (logo.HasFinished()) {
+		App->render->Blit(bgTexture, 0, 0, &(Intro.GetCurrentFrame()), false, 0.85f);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
