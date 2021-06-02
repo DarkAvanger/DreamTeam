@@ -39,8 +39,8 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/Scenario.png");
-	scoreTexture = App->textures->Load("Assets/Sprites/scoreboard.png");
 	winTexture = App->textures->Load("Assets/Sprites/win.png");
+	loseTexture = App->textures->Load("Assets/Sprites/lose.png");
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	for (int i = 0, y = 0; i < 10; i++) {
@@ -56,6 +56,10 @@ bool SceneLevel1::Start()
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+
+	App->player->stage = 01;
+	App->player->limit = 90;
+	App->player->steps = 0;
 
 	App->player->position.x = 120;
 	App->player->position.y = 60;
@@ -141,16 +145,55 @@ Update_Status SceneLevel1::PostUpdate()
 		}
 		y += 30;
 	}
-	App->render->Blit(scoreTexture, 220, 30, NULL);
 
 	for (int i = 0; i < 3; i++) {
 		App->render->Blit(bgTexture, box1[i]->boxPosition.x, box1[i]->boxPosition.y, box1[i]->getRenderRect());
 	}
-	if (completeCount == 3) {
-		App->render->Blit(winTexture, 110, 100, NULL);
-		if (playingmusic) {
-			App->audio->PlayMusic("Assets/Music/StageComplete.ogg", 0);
-			playingmusic = false;
+
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false) 
+	{
+		dWin = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false) 
+	{
+		dLose = true;
+	}
+
+	if (App->player->steps == App->player->limit || dLose == true) 
+	{	// dLose= f3 direct loose
+
+		App->render->Blit(loseTexture, 110, 100, NULL);
+		if (loseF != true) 
+		{
+            if (playingmusic) 
+			{
+				App->audio->PlayMusic("Assets/Music/Failure.ogg", 0);
+				playingmusic = false;
+			}
+			loseF = true;
+		}
+		//CleanUp();
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// Restart the level when losing
+		{
+			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+		}
+	}
+	if (completeCount == 3 || dWin == true) // dWin= F3 direct win
+	{
+		if (winF != true) {
+            if (playingmusic) {
+				App->audio->PlayMusic("Assets/Music/StageComplete.ogg", 0);
+				playingmusic = false;
+			}
+			winF = true;
+		}
+        App->render->Blit(winTexture, 110, 100, NULL);
+		LOG("level 1 completed");
+		//CleanUp();
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
+		{
+			//App->audio->PlayFx(nextFx);
+			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;

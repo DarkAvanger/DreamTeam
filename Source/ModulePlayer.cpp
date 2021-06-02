@@ -100,13 +100,14 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/CharacterAnimation.png");
+	scoretable = App->textures->Load("Assets/Sprites/scoreboard.png");
 	currentAnimation = &idleAnim;
 
 	//laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	//explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
-	position.x = 120;
-	position.y = 60;
+	position.x;
+	position.y;
 
 	colliderPlayer = App->collisions->AddCollider({ position.x, position.y, 30, 30 }, Collider::Type::PLAYER, this);
 	colliderPlayerUp = App->collisions->AddCollider({ position.x, position.y-30, 30, 30 }, Collider::Type::PLAYER, this);
@@ -115,9 +116,8 @@ bool ModulePlayer::Start()
 	colliderPlayerRight = App->collisions->AddCollider({ position.x+30, position.y, 30, 30 }, Collider::Type::PLAYER, this);
 
 	
-	char lookupTable[] = { "0123456789" };
-	scoreFont = App->fonts->Load("Assets/Fonts/score.png", "0123456789", 1);
-	
+	char lookupTable[] = { "0123456789 0123456789" };
+	scoreFont = App->fonts->Load("Assets/Fonts/Score1.png", lookupTable, 2);
 
 	return ret;
 }
@@ -135,6 +135,7 @@ Update_Status ModulePlayer::Update()
 			if (canMoveDir[2]) {
 				step = 30;
 				moveDir = { -1,0 };
+				steps++;
 			}
 			idleDir = 3;
 			if (currentAnimation != &leftAnim)
@@ -149,6 +150,7 @@ Update_Status ModulePlayer::Update()
 			if (canMoveDir[3]) {
 				step = 30;
 				moveDir = { 1,0 };
+				steps++;
 			}
 			idleDir = 0;
 			if (currentAnimation != &rightAnim)
@@ -163,6 +165,7 @@ Update_Status ModulePlayer::Update()
 			if (canMoveDir[1]) {
 				step = 30;
 				moveDir = { 0,1 };
+				steps++;
 			}
 			idleDir = 2;
 			if (currentAnimation != &downAnim)
@@ -177,6 +180,7 @@ Update_Status ModulePlayer::Update()
 			if (canMoveDir[0]) {
 				step = 30;
 				moveDir = { 0,-1 };
+				steps++;
 			}
 			idleDir = 1;
 			if (currentAnimation != &upAnim)
@@ -212,16 +216,16 @@ Update_Status ModulePlayer::PostUpdate()
         }
 
 		// Draw UI (score) --------------------------------------
-		sprintf_s(scoreText, 10, "%7d", score);
+		sprintf_s(stepText, 10, "%4d", steps);
+		App->fonts->BlitText(220, 24, scoreFont, stepText);
 
-		// TODO 3: Blit the text of the score at the bottom of the screen
+		sprintf_s(limitText, 10, "%4d", limit);
+		App->fonts->BlitText(220, 34, scoreFont, limitText);
 
-		App->fonts->BlitText(305, 40, scoreFont, "01");
+		sprintf_s(stageText, 10, "%2d", stage);
+		App->fonts->BlitText(220, 12, scoreFont, stageText);
 
-		App->fonts->BlitText(288, 55, scoreFont, "0000");
-
-		App->fonts->BlitText(288, 70, scoreFont, "0090");
-
+		App->render->Blit(scoretable, 220, 30, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }
 

@@ -66,17 +66,17 @@ Update_Status MainMenu::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
 		if (M_Index < 2)
 		{
+			App->audio->PlayFx(selectFx);
 			M_Index++;
 			p_y -= 13;
-			App->audio->PlayFx(selectFx);
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
 		if (M_Index > 0)
 		{
+			App->audio->PlayFx(selectFx);
 			M_Index--;
 			p_y += 13;
-			App->audio->PlayFx(selectFx);
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
@@ -136,9 +136,9 @@ Update_Status MainMenu::PostUpdate()
 	App->render->Blit(bgTexture, SCREEN_WIDTH / 2 - 115, SCREEN_HEIGHT / 2 - 120, NULL);
 	App->render->Blit(Pointer, p_x, p_y, NULL);
 
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 20, 150, menuFont, "play game");
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 20, 162, menuFont, "coop mode");
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 20, 174, menuFont, "level edit");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 30, menuFont, "play game");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 43, menuFont, "coop mode");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 56, menuFont, "level edit");
 
 
 	return Update_Status::UPDATE_CONTINUE;

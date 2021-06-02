@@ -30,6 +30,8 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 	logo.PushBack({ x , y + 226 , 256, 224 });
 	logo.PushBack({ x , y + 226 , 256, 224 });
 	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
+	logo.PushBack({ x , y + 226 , 256, 224 });
 	logo.loop = false;
 	logo.speed = 0.15f;
 
@@ -48,7 +50,7 @@ SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 	Intro.PushBack({ x, y + 226 * 12, 256, 224 });
 
 	Intro.loop = false;
-	Intro.speed = 0.08f;
+	Intro.speed = 0.085f;
 }
 
 SceneIntro::~SceneIntro()
@@ -77,6 +79,9 @@ Update_Status SceneIntro::Update()
 	logo.Update();
 	if (logo.HasFinished()) {
 		Intro.Update();
+	}
+	if (Intro.HasFinished()) {
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{

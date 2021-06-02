@@ -51,9 +51,9 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	// The scoreboard loaded into an SDL_Texture
-	SDL_Texture* scoreTexture = nullptr;
-	// The winningboard loaded into an SDL_Texture
 	SDL_Texture* winTexture = nullptr;
+	// The losingboard loaded into an SDL_Texture
+	SDL_Texture* loseTexture = nullptr;
 	// The sprite rectangle for the block
 	SDL_Rect block;
 
@@ -71,6 +71,12 @@ public:
 
 	// The sprite rectangle for the boxondestination
 	SDL_Rect boxondestination;
+
+	bool dWin = false;
+	bool dLose = false;
+
+	bool winF = false;
+	bool loseF = false;
 
 	int completeCount = 0;
 	int score = 0;

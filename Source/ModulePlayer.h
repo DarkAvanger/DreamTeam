@@ -46,6 +46,7 @@ public:
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
+	SDL_Texture* scoretable = nullptr;
 	
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
@@ -71,9 +72,18 @@ public:
 	Collider* colliderPlayerRight = nullptr;
 
 	// Font score index
-	uint score = 000;
+	uint steps = 0000;
+	uint limit = 0000;
+	uint stage = 0000;
+
 	int scoreFont = -1;
-	char scoreText[10] = { "\0" };
+	char stepText[10] = { "\0" };
+
+	int limitFont = -1;
+	char limitText[10] = { "\0" };
+
+	int stageFont = -1;
+	char stageText[10] = { "\0" };
 };
 
 #endif //!__MODULE_PLAYER_H__
