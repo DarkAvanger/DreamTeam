@@ -30,7 +30,7 @@ public:
 	// Performs the render call of all the parts of the scene's background
 	Update_Status PostUpdate() override;
 
-	void reset();
+	//void reset();
 	// Disables the player and the enemies
 	bool CleanUp();
 

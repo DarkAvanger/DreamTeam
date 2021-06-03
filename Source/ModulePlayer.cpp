@@ -220,10 +220,10 @@ Update_Status ModulePlayer::PostUpdate()
 		App->fonts->BlitText(220, 24, scoreFont, stepText);
 
 		sprintf_s(limitText, 10, "%4d", limit);
-		App->fonts->BlitText(220, 34, scoreFont, limitText);
+		App->fonts->BlitText(220, 34, limitFont, limitText);
 
 		sprintf_s(stageText, 10, "%2d", stage);
-		App->fonts->BlitText(220, 12, scoreFont, stageText);
+		App->fonts->BlitText(220, 12, stageFont, stageText);
 
 		App->render->Blit(scoretable, 220, 30, NULL);
 	return Update_Status::UPDATE_CONTINUE;

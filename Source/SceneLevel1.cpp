@@ -59,7 +59,7 @@ bool SceneLevel1::Start()
 
 	App->player->stage = 01;
 	App->player->limit = 90;
-	App->player->steps = 0;
+	App->player->steps = 00;
 
 	App->player->position.x = 120;
 	App->player->position.y = 60;
@@ -211,19 +211,19 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
-void SceneLevel1::reset() {
-	App->player->position = { 120 ,60};
-	App->player->step = 0;
-	App->player->moveDir = { 0,0 };
-	App->player->idleDir = 0;
-	App->player->steps = 0000;
-	App->player->limit = 0000;
-	App->player->stage = 0000;
-	box1[0]->boxPosition = { 120,120 };
-	box1[1]->boxPosition = {90,180};
-	box1[2]->boxPosition = {180,150};
-	playingmusic = true;
-}
+//void SceneLevel1::reset() {
+//	App->player->position = { 120 ,60};
+//	App->player->step = 0;
+//	App->player->moveDir = { 0,0 };
+//	App->player->idleDir = 0;
+//	App->player->steps = 0000;
+//	App->player->limit = 0000;
+//	App->player->stage = 0000;
+//	box1[0]->boxPosition = { 120,120 };
+//	box1[1]->boxPosition = {90,180};
+//	box1[2]->boxPosition = {180,150};
+//	playingmusic = true;
+//}
 bool SceneLevel1::CleanUp()
 {
 	App->player->Disable();

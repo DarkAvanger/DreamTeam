@@ -58,7 +58,7 @@ bool SceneLevel3::Start()
 	App->render->camera.y = 0;
 
 	App->player->stage = 03;
-	App->player->limit = 90;
+	App->player->limit = 50;
 	App->player->steps = 0;
 
 	App->player->Enable();
@@ -97,6 +97,19 @@ Update_Status SceneLevel3::PreUpdate()
 Update_Status SceneLevel3::Update()
 {
 	App->render->camera.x += 0;
+
+	if (App->player->steps == App->player->limit || dLose == true)
+	{
+		for (int i = 0; i < 4; i++) {
+			App->player->canMoveDir[i] = false;
+		}
+	}
+	if (completeCount == 5 || dWin == true)
+	{
+		for (int i = 0; i < 4; i++) {
+			App->player->canMoveDir[i] = false;
+		}
+	}
 
 	completeCount = 0;
 	for (int i = 0; i < 5; i++)
