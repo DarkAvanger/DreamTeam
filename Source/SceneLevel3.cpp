@@ -112,11 +112,25 @@ Update_Status SceneLevel3::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
 	}
-	//printf("%d\n", completeCount);
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to return to menu
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+	}
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
+	{
+		dWin = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
+	{
+		dLose = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-// Update: draw background
+
 Update_Status SceneLevel3::PostUpdate()
 {
 	for (int i = 0; i < 5; i++)
@@ -152,15 +166,6 @@ Update_Status SceneLevel3::PostUpdate()
 	for (int i = 0; i < 5; i++) {
 		App->render->Blit(bgTexture, box3[i]->boxPosition.x, box3[i]->boxPosition.y, box3[i]->getRenderRect());
 	}
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
-	{
-		dWin = true;
-	}
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
-	{
-		dLose = true;
-	}
-
 	if (App->player->steps == App->player->limit || dLose == true)
 	{	// dLose= f3 direct loose
 
@@ -172,13 +177,9 @@ Update_Status SceneLevel3::PostUpdate()
 				App->audio->PlayMusic("Assets/Music/Failure.ogg", 0);
 				playingmusic = false;
 			}
-			loseF = true;
+  			loseF = true;
 		}
 		//CleanUp();
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// Restart the level when losing
-		{
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
-		}
 	}
 	if (completeCount == 5 || dWin == true) // dWin= F3 direct win
 	{

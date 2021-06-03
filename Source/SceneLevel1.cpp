@@ -73,7 +73,6 @@ bool SceneLevel1::Start()
 	targets1[0] = new Target({ 150,60,30,30 },this);
 	targets1[1] = new Target({ 180,60,30,30 },this);
 	targets1[2] = new Target({ 210,60,30,30 },this);
-
 	for (int i = 0; i < 3; i++) {
 		box1[i]->Start();
 	}
@@ -86,7 +85,6 @@ Update_Status SceneLevel1::PreUpdate()
 	{
 		box1[i]->PreUpdate();
 	}
-
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -94,6 +92,18 @@ Update_Status SceneLevel1::Update()
 {
 	App->render->camera.x += 0;
 
+	if (App->player->steps == App->player->limit || dLose == true)
+	{	
+		for (int i = 0; i < 4; i++) {
+			App->player->canMoveDir[i] = false;
+		}
+	}
+	if (completeCount == 3 || dWin == true) 
+	{
+		for (int i = 0; i < 4; i++) {
+			App->player->canMoveDir[i] = false;
+		}
+	}
 	completeCount = 0;
 	for (int i = 0; i < 3; i++)
 	{
@@ -108,11 +118,26 @@ Update_Status SceneLevel1::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 	}
-	//printf("%d\n", completeCount);
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) 
+	{		// ESC to return to menu
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+	}
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
+	{
+		dWin = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
+	{
+		dLose = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-// Update: draw background
+
 Update_Status SceneLevel1::PostUpdate()
 {
 	for (int i = 0; i < 3; i++) 
@@ -149,23 +174,12 @@ Update_Status SceneLevel1::PostUpdate()
 	for (int i = 0; i < 3; i++) {
 		App->render->Blit(bgTexture, box1[i]->boxPosition.x, box1[i]->boxPosition.y, box1[i]->getRenderRect());
 	}
-
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false) 
-	{
-		dWin = true;
-	}
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false) 
-	{
-		dLose = true;
-	}
-
-	if (App->player->steps == App->player->limit || dLose == true) 
+	if (App->player->steps == App->player->limit || dLose == true)
 	{	// dLose= f3 direct loose
-
 		App->render->Blit(loseTexture, 110, 100, NULL);
-		if (loseF != true) 
+		if (loseF != true)
 		{
-            if (playingmusic) 
+			if (playingmusic)
 			{
 				App->audio->PlayMusic("Assets/Music/Failure.ogg", 0);
 				playingmusic = false;
@@ -173,21 +187,20 @@ Update_Status SceneLevel1::PostUpdate()
 			loseF = true;
 		}
 		//CleanUp();
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// Restart the level when losing
-		{
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
-		}
 	}
 	if (completeCount == 3 || dWin == true) // dWin= F3 direct win
 	{
+		for (int i = 0; i < 4; i++) {
+			App->player->canMoveDir[i] = false;
+		}
 		if (winF != true) {
-            if (playingmusic) {
+			if (playingmusic) {
 				App->audio->PlayMusic("Assets/Music/StageComplete.ogg", 0);
 				playingmusic = false;
 			}
 			winF = true;
 		}
-        App->render->Blit(winTexture, 110, 100, NULL);
+		App->render->Blit(winTexture, 110, 100, NULL);
 		LOG("level 1 completed");
 		//CleanUp();
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
@@ -197,6 +210,19 @@ Update_Status SceneLevel1::PostUpdate()
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;
+}
+void SceneLevel1::reset() {
+	App->player->position = { 120 ,60};
+	App->player->step = 0;
+	App->player->moveDir = { 0,0 };
+	App->player->idleDir = 0;
+	App->player->steps = 0000;
+	App->player->limit = 0000;
+	App->player->stage = 0000;
+	box1[0]->boxPosition = { 120,120 };
+	box1[1]->boxPosition = {90,180};
+	box1[2]->boxPosition = {180,150};
+	playingmusic = true;
 }
 bool SceneLevel1::CleanUp()
 {

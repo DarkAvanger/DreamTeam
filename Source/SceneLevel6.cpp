@@ -107,12 +107,26 @@ Update_Status SceneLevel6::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
-	//printf("%d\n", completeCount);
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to return to menu
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+	}
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
+	{
+		dWin = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
+	{
+		dLose = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 90);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
-// Update: draw background
+
 Update_Status SceneLevel6::PostUpdate()
 {
 	for (int i = 0; i < 5; i++)
@@ -149,14 +163,6 @@ Update_Status SceneLevel6::PostUpdate()
 	for (int i = 0; i < 5; i++) {
 		App->render->Blit(bgTexture, box6[i]->boxPosition.x, box6[i]->boxPosition.y, box6[i]->getRenderRect());
 	}
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
-	{
-		dWin = true;
-	}
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
-	{
-		dLose = true;
-	}
 
 	if (App->player->steps == App->player->limit || dLose == true)
 	{	// dLose= f3 direct loose
@@ -172,10 +178,6 @@ Update_Status SceneLevel6::PostUpdate()
 			loseF = true;
 		}
 		//CleanUp();
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// Restart the level when losing
-		{
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 90);
-		}
 	}
 	if (completeCount == 5 || dWin == true) // dWin= F3 direct win
 	{
@@ -192,7 +194,7 @@ Update_Status SceneLevel6::PostUpdate()
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
 		{
 			//App->audio->PlayFx(nextFx);
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 90);
+			App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;

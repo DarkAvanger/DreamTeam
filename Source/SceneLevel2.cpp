@@ -105,10 +105,24 @@ Update_Status SceneLevel2::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
 	}
-	//printf("%d\n", completeCount);
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to return to menu
+		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+	}
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
+	{
+		dWin = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
+	{
+		dLose = true;
+	}
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	{
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
-// Update: draw background
+
 Update_Status SceneLevel2::PostUpdate()
 {
 	for (int i = 0; i < 3; i++)
@@ -146,13 +160,9 @@ Update_Status SceneLevel2::PostUpdate()
 		App->render->Blit(bgTexture, box2[i]->boxPosition.x, box2[i]->boxPosition.y, box2[i]->getRenderRect());
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
 	{
-		dWin = true;
-	}
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN && dLose == false)
-	{
-		dLose = true;
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 	}
 
 	if (App->player->steps == App->player->limit || dLose == true)
@@ -169,10 +179,6 @@ Update_Status SceneLevel2::PostUpdate()
 			loseF = true;
 		}
 		//CleanUp();
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// Restart the level when losing
-		{
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
-		}
 	}
 	if (completeCount == 3 || dWin == true) // dWin= F3 direct win
 	{
@@ -193,6 +199,18 @@ Update_Status SceneLevel2::PostUpdate()
 		}
 	}
 	return Update_Status::UPDATE_CONTINUE;
+}
+void SceneLevel2::reset() {
+	App->player->position = { 60 ,60 };
+	App->player->step = 0;
+	App->player->moveDir = { 0,0 };
+	App->player->idleDir = 0;
+	App->player->steps = 0000;
+	App->player->limit = 0000;
+	App->player->stage = 0000;
+	box2[0]->boxPosition = { 90,90 };
+	box2[1]->boxPosition = { 120,90 };
+	box2[2]->boxPosition = { 90,120 };
 }
 bool SceneLevel2::CleanUp()
 {
