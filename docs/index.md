@@ -33,9 +33,32 @@ Management
 
 ##Intro Animation
 
+- Press "space" to skip the animation
+
 ##Main Menu
 
-##Ingame
+- Press "W" and "S" to choose the modo
+
+- Press "space" to confirm the selection
+
+- Press "ESC" to exit the game
+
+##Ingame (All stages)
 
 ##Player Movement
 
+- Pres "R" to restart the game
+
+- Press "space" to play the next stage
+
+- Press "F1" to show the collision
+
+- Press "F2" to win directly
+
+- Press "F3" to lose directly
+
+- Press "ESC" to go to the Menu
+
+- When win: press "space" to play the next stage
+
+- When lose: press "R" to restart the game
