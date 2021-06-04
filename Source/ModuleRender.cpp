@@ -37,6 +37,9 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
+	// L10: DONE: Set render logical size
+	//SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+
 	return ret;
 }
 

@@ -39,8 +39,9 @@ bool MainMenu::Start()
 	p_pos.x = p_x;
 	p_pos.y = p_y;
 
-	char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
-	menuFont = App->fonts->Load("Assets/Fonts/rtype_font.png", lookupTable, 1);
+	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
+	menuFont = App->fonts->Load("Assets/Fonts/rtype_font3.png", lookupTable, 2);
+
 
 	// music and fx
 	titleMenuMusic = App->audio->PlayMusic("Assets/Music/Title Screen.ogg", 1.0f);
@@ -132,14 +133,12 @@ Update_Status MainMenu::PostUpdate()
 	App->render->Blit(scroller2, 0, scroller2Y, NULL);
 	App->render->Blit(menu_box, SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 + 25, NULL);
 
-
 	App->render->Blit(bgTexture, SCREEN_WIDTH / 2 - 115, SCREEN_HEIGHT / 2 - 120, NULL);
 	App->render->Blit(Pointer, p_x, p_y, NULL);
 
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 30, menuFont, "play game");
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 43, menuFont, "coop mode");
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 32, SCREEN_HEIGHT / 2 + 56, menuFont, "level edit");
-
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 33, menuFont, "play game");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 46, menuFont, "coop mode");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 59, menuFont, "level edit");
 
 	return Update_Status::UPDATE_CONTINUE;
 }

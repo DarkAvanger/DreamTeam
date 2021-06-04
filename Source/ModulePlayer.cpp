@@ -177,7 +177,8 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 		{
-			if (canMoveDir[0]) {
+			if (canMoveDir[0]) 
+			{
 				step = 30;
 				moveDir = { 0,-1 };
 				steps++;
@@ -217,15 +218,15 @@ Update_Status ModulePlayer::PostUpdate()
 
 		// Draw UI (score) --------------------------------------
 		sprintf_s(stepText, 10, "%4d", steps);
-		App->fonts->BlitText(220, 24, scoreFont, stepText);
+		App->fonts->BlitText(270, 44, scoreFont, stepText);
 
 		sprintf_s(limitText, 10, "%4d", limit);
-		App->fonts->BlitText(220, 34, limitFont, limitText);
+		App->fonts->BlitText(270, 54, scoreFont, limitText);
 
 		sprintf_s(stageText, 10, "%2d", stage);
-		App->fonts->BlitText(220, 12, stageFont, stageText);
+		App->fonts->BlitText(280, 32, scoreFont, stageText);
 
-		App->render->Blit(scoretable, 220, 30, NULL);
+		App->render->Blit(scoretable, 240, 30, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }
 

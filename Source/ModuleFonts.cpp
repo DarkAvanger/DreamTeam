@@ -66,6 +66,7 @@ int ModuleFonts::Load(const char* texture_path, const char* characters, uint row
 	App->textures->GetTextureSize(tex, tex_w, tex_h);
 	font.char_w = tex_w / font.columns;
 	font.char_h = tex_h / font.rows;
+	// L10: DONE: Set render logical size	font.char_h = tex_h / font.rows;
 
 	LOG("Successfully loaded BMP font from %s", texture_path);
 
@@ -114,7 +115,7 @@ void ModuleFonts::BlitText(int x, int y, int font_id, const char* text) const
 		spriteRect.x = spriteRect.w * (charIndex % font->columns);
 		spriteRect.y = spriteRect.h * (charIndex / font->columns);
 
-		App->render->Blit(font->texture, x, y, &spriteRect, 0.0f, false);
+		App->render->Blit(font->texture, x, y, &spriteRect, true, 0.0f, false);
 
 		x += spriteRect.w;
 	}

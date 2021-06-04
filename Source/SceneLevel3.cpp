@@ -123,6 +123,8 @@ Update_Status SceneLevel3::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
+		dWin = false;
+		dLose = false;
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to return to menu
@@ -138,6 +140,8 @@ Update_Status SceneLevel3::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
 	{
+		dWin = false;
+		dLose = false;
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
 	}
 	return Update_Status::UPDATE_CONTINUE;
@@ -206,11 +210,11 @@ Update_Status SceneLevel3::PostUpdate()
 		App->render->Blit(winTexture, 110, 100, NULL);
 		LOG("level 3 completed");
 		//CleanUp();
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
-		{
-			//App->audio->PlayFx(nextFx);
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
-		}
+		//if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
+		//{
+		//	//App->audio->PlayFx(nextFx);
+		//	App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
+		//}
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
