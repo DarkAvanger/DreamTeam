@@ -85,7 +85,7 @@ Update_Status MainMenu::Update()
 		if (M_Index == B_Play)
 		{
 			App->audio->PlayFx(nextFx);
-			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+			App->fade->FadeToBlack(this, (Module*)App->stageSelect, 90);
 		}
 		else {
 			App->audio->PlayFx(backFx);

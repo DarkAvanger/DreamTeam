@@ -80,7 +80,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Collider.h" />
-    <ClInclude Include="introscreen.h" />
+    <ClInclude Include="IntroScreen.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleCollisions.h" />
@@ -103,6 +103,7 @@
     <ClInclude Include="SceneLevel4.h" />
     <ClInclude Include="SceneLevel5.h" />
     <ClInclude Include="SceneLevel6.h" />
+    <ClInclude Include="StageSelect.h" />
     <ClInclude Include="Target.h" />
   </ItemGroup>
   <ItemGroup>
@@ -110,7 +111,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="introscreen.cpp" />
+    <ClCompile Include="IntroScreen.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
@@ -131,6 +132,7 @@
     <ClCompile Include="SceneLevel4.cpp" />
     <ClCompile Include="SceneLevel5.cpp" />
     <ClCompile Include="SceneLevel6.cpp" />
+    <ClCompile Include="StageSelect.cpp" />
     <ClCompile Include="Target.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

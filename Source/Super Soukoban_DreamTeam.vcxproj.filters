@@ -58,7 +58,7 @@
     <ClCompile Include="Module.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="introscreen.cpp">
+    <ClCompile Include="IntroScreen.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="SceneLevel2.cpp">
@@ -77,6 +77,9 @@
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelect.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
@@ -144,7 +147,7 @@
     <ClInclude Include="Module.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="introscreen.h">
+    <ClInclude Include="IntroScreen.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="SceneLevel2.h">
@@ -163,6 +166,9 @@
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelect.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
