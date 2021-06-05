@@ -32,7 +32,7 @@ bool StageSelect::Start()
 	levelsBoard = App->textures->Load("Assets/Sprites/game_menu_levels.png");
 	levelOption = App->textures->Load("Assets/Sprites/game_menu_options.png");
 	levelTitle = App->textures->Load("Assets/Sprites/game_menu_title.png");
-	debugBorad = App->textures->Load("Assets/Sprites/level_menu.png");
+	debugBorad = App->textures->Load("Assets/Sprites/game_menu_controls.png");
 	leftBorad = App->textures->Load("Assets/Sprites/game_menu_left.png");
 	rightBorad = App->textures->Load("Assets/Sprites/game_menu_right.png");
 	numberBorad = App->textures->Load("Assets/Sprites/game_menu_number.png");
@@ -101,47 +101,47 @@ Update_Status StageSelect::Update()
 				App->audio->PlayFx(selectFx);
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a) {
-
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a) 
+		{
 			// controls
-			if (pointerPosY == 30) {
+			if (pointerPosY == 58) {
 				App->audio->PlayFx(nextFx);
 				display = true;
 			}
 			// exit
-			if (pointerPosY == 50) {
+			if (pointerPosY == 38) {
 				App->audio->PlayFx(backFx);
-				App->fade->FadeToBlack(this, (Module*)App->mainMenu, 60);
+				App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 			}
 			// 1
-			if (pointerPosX == 105 && pointerPosY == 120) {
+			if (pointerPosX == 73 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
 			}
 			// 2
-			if (pointerPosX == 121 && pointerPosY == 120) {
+			if (pointerPosX == 89 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 			}
 			// 3
-			if (pointerPosX == 137 && pointerPosY == 120) {
+			if (pointerPosX == 105 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
 			}
 			// 4
-			if (pointerPosX == 153 && pointerPosY == 120) {
+			if (pointerPosX == 121 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_4, 90);
 			}
 			// 5
-			if (pointerPosX == 169 && pointerPosY == 120) {
+			if (pointerPosX == 137 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_5, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_5, 90);
 			}
 			// 6
-			if (pointerPosX == 185 && pointerPosY == 120) {
+			if (pointerPosX == 153 && pointerPosY == 152) {
 				App->audio->PlayFx(nextFx);
-				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 60);
+				App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 90);
 			}
 
 		}
@@ -151,11 +151,6 @@ Update_Status StageSelect::Update()
 			display = false;
 			App->audio->PlayFx(backFx);
 		}
-	}
-	
-
-	if (App->input->keys[SDL_SCANCODE_ESCAPE] == Key_State::KEY_DOWN || pad.back) {		// ESC to close the game
-		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -179,13 +174,16 @@ Update_Status StageSelect::PostUpdate()
 		App->fonts->BlitText(120, 60, menuFont, "game controls");
 		App->fonts->BlitText(120, 40, menuFont, "back to menu");
 	}
+	if (display == true) {
+		App->render->Blit(bgTexture, 0, 0, NULL);
+		App->render->Blit(debugBorad, 26, 50, NULL);
+		App->fonts->BlitText(116, 70, menuFont, "game controls");
+		App->fonts->BlitText(71, 90, menuFont, "asdw < movement");
+		App->fonts->BlitText(71, 105, menuFont, "space < continue");
+		App->fonts->BlitText(71, 120, menuFont, "f1 f2 f3 < debug keys"); 
+		App->fonts->BlitText(71, 135, menuFont, "r < restart the game");
+		App->fonts->BlitText(71, 150, menuFont, "esc < back");
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
-}
-
-bool StageSelect::CleanUp() {
-	pointerPosX = 130;
-	pointerPosY = 110;
-	display = false;
-	return true;
 }
