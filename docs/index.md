@@ -49,13 +49,11 @@ Management
 
 ## Ingame (All stages)
 
-## Player Movement
-
-- Pres "R" to restart the game
+- Press "R" to restart the game
 
 - Press "space" to play the next stage
 
-- Press "F1" to show the collision
+- Press "F1" to show the collisions
 
 - Press "F2" to win directly
 
@@ -66,3 +64,13 @@ Management
 - When win: press "space" to play the next stage
 
 - When lose: press "R" to restart the game
+
+## Player Movement
+
+-Press "W" to go up
+
+-Press "S" to go down
+
+-Press "A" to go left
+
+-Press "D" to go right
