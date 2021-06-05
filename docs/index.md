@@ -1,4 +1,4 @@
-#Description 
+# Description 
 
 Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by Pack-In-Video, which was released in Japan in 1993.
 
@@ -6,7 +6,7 @@ The objective of the game is to push crates or boxes around a maze and put them 
 
 ![image](https://user-images.githubusercontent.com/73582921/120871795-ffac8b00-c59c-11eb-9b16-f4a87a3392bc.png)
 
-#The Team
+# The Team
 
 We are 4 students studying our first year of Videogames in CITM, UPC, in Barcelona, Spain.
 
@@ -16,30 +16,30 @@ Our team name is Dream Studios and this is who we are:
 
 ![image](https://user-images.githubusercontent.com/73582921/120869681-46978200-c597-11eb-9a2d-7ed70ae00ca9.png)
 
-##Hang Xue
+## Hang Xue
 
 Main Code
 
-##Angel Consola
+## Angel Consola
 
 Art & Code
 
-##Sofia Liles
+## Sofia Liles
 
 Design QA
 
-##Marta Llurba
+## Marta Llurba
 
 Management
 
 
-#Controls
+# Controls
 
-##Intro Animation
+## Intro Animation
 
 - Press "space" to skip the animation
 
-##Main Menu
+## Main Menu
 
 - Press "W" and "S" to choose the modo
 
@@ -47,9 +47,9 @@ Management
 
 - Press "ESC" to exit the game
 
-##Ingame (All stages)
+## Ingame (All stages)
 
-##Player Movement
+## Player Movement
 
 - Pres "R" to restart the game
 
