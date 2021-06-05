@@ -6,7 +6,7 @@ The objective of the game is to push crates or boxes around a maze and put them 
 
 ![image](https://user-images.githubusercontent.com/73582921/120871795-ffac8b00-c59c-11eb-9b16-f4a87a3392bc.png)
 
-# The Team
+# Our Team
 
 We are 4 students studying our first year of Videogames in CITM, UPC, in Barcelona, Spain.
 
