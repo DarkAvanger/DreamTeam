@@ -47,6 +47,12 @@ Management
 
 - Press "ESC" to exit the game
 
+## stage select
+
+- Press "A" "D" "W" and "S" to move the selector
+
+- Press "space" to confirm the selection
+
 ## Ingame (All stages)
 
 - Press "R" to restart the game
