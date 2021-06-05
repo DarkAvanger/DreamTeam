@@ -77,13 +77,14 @@ bool SceneIntro::Start()
 Update_Status SceneIntro::Update()
 {
 	logo.Update();
+	GamePad& pad = App->input->pads[0];
 	if (logo.HasFinished()) {
 		Intro.Update();
 	}
 	if (Intro.HasFinished()) {
 		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}

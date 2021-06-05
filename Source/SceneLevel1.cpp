@@ -91,6 +91,7 @@ Update_Status SceneLevel1::PreUpdate()
 Update_Status SceneLevel1::Update()
 {
 	App->render->camera.x += 0;
+	GamePad& pad = App->input->pads[0];
 
 	if (App->player->steps == App->player->limit || dLose == true)
 	{	
@@ -114,13 +115,13 @@ Update_Status SceneLevel1::Update()
 			completeCount++;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a)
 	{
 		dWin = false;
 		dLose = false;
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
 	}
-	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) 
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN || pad.back)
 	{		// ESC to return to menu
 		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
@@ -132,7 +133,7 @@ Update_Status SceneLevel1::Update()
 	{
 		dLose = true;
 	}
-	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN || pad.b)	// Restart the level
 	{
 		dWin = false;
 		dLose = false;
@@ -206,30 +207,10 @@ Update_Status SceneLevel1::PostUpdate()
 		}
 		App->render->Blit(winTexture, 110, 100, NULL);
 		LOG("level 1 completed");
-		//CleanUp();
-		//if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
-		//{
-		//	dWin = false;
-		//	dLose = false;
-		//	//App->audio->PlayFx(nextFx);
-		//	App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
-		//}
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
-//void SceneLevel1::reset() {
-//	App->player->position = { 120 ,60};
-//	App->player->step = 0;
-//	App->player->moveDir = { 0,0 };
-//	App->player->idleDir = 0;
-//	App->player->steps = 0000;
-//	App->player->limit = 0000;
-//	App->player->stage = 0000;
-//	box1[0]->boxPosition = { 120,120 };
-//	box1[1]->boxPosition = {90,180};
-//	box1[2]->boxPosition = {180,150};
-//	playingmusic = true;
-//}
+
 bool SceneLevel1::CleanUp()
 {
 	App->player->Disable();

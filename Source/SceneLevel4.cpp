@@ -95,6 +95,7 @@ Update_Status SceneLevel4::PreUpdate()
 Update_Status SceneLevel4::Update()
 {
 	App->render->camera.x += 0;
+	GamePad& pad = App->input->pads[0];
 
 	if (App->player->steps == App->player->limit || dLose == true)
 	{
@@ -119,13 +120,13 @@ Update_Status SceneLevel4::Update()
 			completeCount++;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a)
 	{
 		dWin = false;
 		dLose = false;
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_5, 90);
 	}
-	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to return to menu
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN || pad.back) {		// ESC to return to menu
 		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
@@ -136,7 +137,7 @@ Update_Status SceneLevel4::Update()
 	{
 		dLose = true;
 	}
-	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
+	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN || pad.b)	// Restart the level
 	{
 		dWin = false;
 		dLose = false;

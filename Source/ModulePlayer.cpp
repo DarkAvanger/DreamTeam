@@ -130,7 +130,9 @@ Update_Status ModulePlayer::Update()
 	if (step <= 0) {
 		idleAnim.SetcurrentFrame(idleDir);
 		currentAnimation = &idleAnim;
-		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+		GamePad& pad = App->input->pads[0];
+
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT || pad.left_x < 0.0f || pad.left)
 		{
 			if (canMoveDir[2]) {
 				step = 30;
@@ -145,7 +147,7 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT || pad.left_x > 0.0f || pad.right)
 		{
 			if (canMoveDir[3]) {
 				step = 30;
@@ -160,7 +162,7 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT || pad.left_y > 0.0f || pad.down)
 		{
 			if (canMoveDir[1]) {
 				step = 30;
@@ -175,7 +177,7 @@ Update_Status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT || pad.left_y < 0.0f || pad.up)
 		{
 			if (canMoveDir[0]) 
 			{

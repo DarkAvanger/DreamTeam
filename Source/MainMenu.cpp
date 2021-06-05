@@ -54,6 +54,8 @@ bool MainMenu::Start()
 
 Update_Status MainMenu::Update()
 {
+	GamePad& pad = App->input->pads[0];
+
 	scrollerY -= 1;
 	scroller2Y -= 1;
 
@@ -64,7 +66,7 @@ Update_Status MainMenu::Update()
 		scroller2Y = 1034;
 	}
 	//key commands 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN || pad.left_y < 0.0f || pad.up) {
 		if (M_Index < 2)
 		{
 			App->audio->PlayFx(selectFx);
@@ -72,7 +74,7 @@ Update_Status MainMenu::Update()
 			p_y -= 13;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN || pad.left_y > 0.0f || pad.down) {
 		if (M_Index > 0)
 		{
 			App->audio->PlayFx(selectFx);
@@ -80,7 +82,7 @@ Update_Status MainMenu::Update()
 			p_y += 13;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a)
 	{
 		if (M_Index == B_Play)
 		{
@@ -116,7 +118,7 @@ Update_Status MainMenu::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_6, 90);
 
 	}
-	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN) {		// ESC to close the game
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN || pad.back) {		// ESC to close the game
 		return Update_Status::UPDATE_STOP;
 	}
 
