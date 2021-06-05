@@ -1,37 +1,68 @@
-## Welcome to GitHub Pages
+#Description 
 
-You can use the [editor on GitHub](https://github.com/DarkAvanger/DreamTeam/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by Pack-In-Video, which was released in Japan in 1993.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The objective of the game is to push crates or boxes around a maze and put them in their designated storage area, marked by a pink dot, using logic since there is a maximum amount of steps per level that the players can take. The goal of all these tasks is to save up enough money to buy a new fancy car and impress the girl he likes, who unfortunately goes off with a guy in a nicer car.
 
-### Markdown
+![image](https://user-images.githubusercontent.com/73582921/120871795-ffac8b00-c59c-11eb-9b16-f4a87a3392bc.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#The Team
 
-```markdown
-Syntax highlighted code block
+We are 4 students studying our first year of Videogames in CITM, UPC, in Barcelona, Spain.
 
-# Header 1
-## Header 2
-### Header 3
+![image](https://user-images.githubusercontent.com/73582921/120871784-f4f1f600-c59c-11eb-9e6b-f326efc814fc.png)
 
-- Bulleted
-- List
+Our team name is Dream Studios and this is who we are:
 
-1. Numbered
-2. List
+![image](https://user-images.githubusercontent.com/73582921/120869681-46978200-c597-11eb-9a2d-7ed70ae00ca9.png)
 
-**Bold** and _Italic_ and `Code` text
+##Hang Xue
 
-[Link](url) and ![Image](src)
-```
+Main Code
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+##Angel Consola
 
-### Jekyll Themes
+Art & Code
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DarkAvanger/DreamTeam/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+##Sofia Liles
 
-### Support or Contact
+Design QA
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+##Marta Llurba
+
+Management
+
+
+#Controls
+
+##Intro Animation
+
+- Press "space" to skip the animation
+
+##Main Menu
+
+- Press "W" and "S" to choose the modo
+
+- Press "space" to confirm the selection
+
+- Press "ESC" to exit the game
+
+##Ingame (All stages)
+
+##Player Movement
+
+- Pres "R" to restart the game
+
+- Press "space" to play the next stage
+
+- Press "F1" to show the collision
+
+- Press "F2" to win directly
+
+- Press "F3" to lose directly
+
+- Press "ESC" to go to the Menu
+
+- When win: press "space" to play the next stage
+
+- When lose: press "R" to restart the game
