@@ -87,4 +87,4 @@ Management
 
 -Press "D" to go right
 
-(You can also use gamepad to play this game.）
+*You can also use gamepad to play this game.*
