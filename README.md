@@ -46,7 +46,7 @@ Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by P
 
 - Press "F3" to lose directly
 
-- Press "ESC" to go to the Menu
+- Press "ESC" to go to the Stage select
 
 - When win: press "space" to play the next stage
 
@@ -68,7 +68,7 @@ Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by P
 
 -Press "D" to go right
 
-(You can also use gamepad to play this game.）
+*You can also use gamepad to play this game.*
 
 ## License
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
