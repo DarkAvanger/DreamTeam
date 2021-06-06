@@ -50,7 +50,7 @@ public:
 	//Menu Buttons
 	const int B_Play = 2;
 	const int B_Coop = 1;
-	const int B_Edit = 0;
+	const int B_Exit = 0;
 
 	int M_Index = 2;
 

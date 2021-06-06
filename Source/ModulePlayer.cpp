@@ -219,6 +219,8 @@ Update_Status ModulePlayer::PostUpdate()
         }
 
 		// Draw UI (score) --------------------------------------
+		App->render->Blit(scoretable, 240, 30, NULL);
+
 		sprintf_s(stepText, 10, "%4d", steps);
 		App->fonts->BlitText(270, 44, scoreFont, stepText);
 
@@ -228,7 +230,6 @@ Update_Status ModulePlayer::PostUpdate()
 		sprintf_s(stageText, 10, "%2d", stage);
 		App->fonts->BlitText(280, 32, scoreFont, stageText);
 
-		App->render->Blit(scoretable, 240, 30, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }
 

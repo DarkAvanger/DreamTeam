@@ -43,6 +43,7 @@ bool ScreenIntro::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/LOGO.png");
 	bgTexture1 = App->textures->Load("Assets/Sprites/UPC.png");
 	bgTexture2 = App->textures->Load("Assets/Sprites/CITM.png");
+	bgTexture3 = App->textures->Load("Assets/Sprites/minilogo.png");
 
 
 	App->render->camera.x = 0;
@@ -82,6 +83,7 @@ Update_Status ScreenIntro::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(bgTexture1, 240 , SCREEN_HEIGHT / 2 + 60, NULL);
 	App->render->Blit(bgTexture2, 20, SCREEN_HEIGHT / 2 + 60, NULL);
+	App->render->Blit(bgTexture3, 142, 0, NULL);
 	
 	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 - 100, titleFont, "project 1 ");
 	App->fonts->BlitText(SCREEN_WIDTH / 2 - 164, SCREEN_HEIGHT / 2 - 85, namesFont, "we are recreating the game super soukoban");

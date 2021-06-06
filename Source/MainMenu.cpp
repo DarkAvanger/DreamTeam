@@ -89,6 +89,10 @@ Update_Status MainMenu::Update()
 			App->audio->PlayFx(nextFx);
 			App->fade->FadeToBlack(this, (Module*)App->stageSelect, 90);
 		}
+		if (M_Index == B_Exit)
+		{
+			return Update_Status::UPDATE_STOP;
+		}
 		else {
 			App->audio->PlayFx(backFx);
 		}
@@ -140,7 +144,7 @@ Update_Status MainMenu::PostUpdate()
 
 	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 33, menuFont, "play game");
 	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 46, menuFont, "coop mode");
-	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 59, menuFont, "level edit");
+	App->fonts->BlitText(SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 + 59, menuFont, "exit game");
 
 	return Update_Status::UPDATE_CONTINUE;
 }

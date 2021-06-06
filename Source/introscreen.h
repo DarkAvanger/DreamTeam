@@ -34,6 +34,7 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTexture1 = nullptr;
 	SDL_Texture* bgTexture2 = nullptr;
+	SDL_Texture* bgTexture3 = nullptr;
 	/*Animation* currentAnimation = nullptr;
 
 	Animation logo;
