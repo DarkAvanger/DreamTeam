@@ -65,7 +65,7 @@ Management
 
 - Press "F3" to lose directly
 
-- Press "ESC" to go to the Menu
+- Press "ESC" to go to the stage select
 
 - When win: press "space" to play the next stage
 
