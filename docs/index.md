@@ -71,6 +71,12 @@ Management
 
 - When lose: press "R" to restart the game
 
+## End Screen
+
+- Press "space" to restart the game
+
+- Press "ESC" to exit the game
+
 ## Player Movement
 
 -Press "W" to go up
@@ -80,3 +86,5 @@ Management
 -Press "A" to go left
 
 -Press "D" to go right
+
+(You can also use gamepad to play this game.）
