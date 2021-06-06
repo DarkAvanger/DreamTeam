@@ -32,9 +32,15 @@ Design QA
 
 Management
 
-# Play the game release here
 
+# Play our game
+
+## Download the last version of the game here
 https://github.com/DarkAvanger/DreamTeam/releases/tag/v1.0
+## Check our Github repository here
+https://github.com/DarkAvanger/DreamTeam
+## For more information, See our wiki  here
+https://github.com/DarkAvanger/DreamTeam/wiki
 
 
 # Controls
