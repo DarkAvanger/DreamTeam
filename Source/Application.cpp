@@ -15,6 +15,7 @@
 #include "SceneLevel4.h"
 #include "SceneLevel5.h"
 #include "SceneLevel6.h"
+#include "EndScreen.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
@@ -39,16 +40,17 @@ Application::Application()
 
 	modules[8] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[9] =    sceneLevel_2 =  new SceneLevel2(false);
-	modules[10] =    sceneLevel_3 =  new SceneLevel3(false);
-	modules[11] =    sceneLevel_4 =  new SceneLevel4(false);
-	modules[12] =   sceneLevel_5 = new SceneLevel5(false);
-	modules[13] =   sceneLevel_6 = new SceneLevel6(false);
+	modules[10] =    sceneLevel_3 = new SceneLevel3(false);
+	modules[11] =    sceneLevel_4 = new SceneLevel4(false);
+	modules[12] =   sceneLevel_5 =  new SceneLevel5(false);
+	modules[13] =   sceneLevel_6 =  new SceneLevel6(false);
 	modules[14] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[15] =   endscreen =     new EndScreen(false);
 
-	modules[15] =	collisions =	new ModuleCollisions(true);
-	modules[16] =	fade =			new ModuleFadeToBlack(true);
-	modules[17] =	fonts =			new ModuleFonts(true);
-	modules[18] =	render =		new ModuleRender(true);
+	modules[16] =	collisions =	new ModuleCollisions(true);
+	modules[17] =	fade =			new ModuleFadeToBlack(true);
+	modules[18] =	fonts =			new ModuleFonts(true);
+	modules[19] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

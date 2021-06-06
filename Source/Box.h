@@ -31,6 +31,9 @@ public:
 	SDL_Rect* getRenderRect() {
 		return &renderRect;
 	}
+	SDL_Rect* getRenderRect1() {
+		return &renderRect1;
+	}
 public:
 	// Position of the box in the map
 	iPoint boxPosition;
@@ -53,6 +56,7 @@ public:
 	Collider* colliderPlayer = nullptr;
 
 	SDL_Rect renderRect = { 0, 3, 30, 30 };
+	SDL_Rect renderRect1 = { 32,3,30,30 };
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 };

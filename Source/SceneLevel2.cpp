@@ -122,7 +122,7 @@ Update_Status SceneLevel2::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN || pad.back) {		// ESC to return to menu
-		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+		App->fade->FadeToBlack(this, (Module*)App->stageSelect, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
 	{
@@ -178,11 +178,6 @@ Update_Status SceneLevel2::PostUpdate()
 		App->render->Blit(bgTexture, box2[i]->boxPosition.x, box2[i]->boxPosition.y, box2[i]->getRenderRect());
 	}
 
-	if (App->input->keys[SDL_SCANCODE_R] == Key_State::KEY_DOWN)	// Restart the level
-	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_2, 90);
-	}
-
 	if (App->player->steps == App->player->limit || dLose == true)
 	{	// dLose= f3 direct loose
 
@@ -209,12 +204,6 @@ Update_Status SceneLevel2::PostUpdate()
 		}
 		App->render->Blit(winTexture, 110, 100, NULL);
 		LOG("level 2 completed");
-		//CleanUp();
-		//if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)	// go to the next level when winning
-		//{
-		//	//App->audio->PlayFx(nextFx);
-		//	App->fade->FadeToBlack(this, (Module*)App->sceneLevel_3, 90);
-		//}
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }

@@ -123,7 +123,7 @@ Update_Status SceneLevel1::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KEY_DOWN || pad.back)
 	{		// ESC to return to menu
-		App->fade->FadeToBlack(this, (Module*)App->mainMenu, 90);
+		App->fade->FadeToBlack(this, (Module*)App->stageSelect, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN && dWin == false)
 	{
@@ -177,7 +177,14 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 
 	for (int i = 0; i < 3; i++) {
-		App->render->Blit(bgTexture, box1[i]->boxPosition.x, box1[i]->boxPosition.y, box1[i]->getRenderRect());
+		for (int j = 0; j < 3; j++) {
+			if (targets1[i]->isComplete) {
+				App->render->Blit(bgTexture, box1[j]->boxPosition.x, box1[j]->boxPosition.y, box1[j]->getRenderRect1());
+			}
+			else {
+				App->render->Blit(bgTexture, box1[j]->boxPosition.x, box1[j]->boxPosition.y, box1[j]->getRenderRect());
+			}
+		}
 	}
 	if (App->player->steps == App->player->limit || dLose == true)
 	{	// dLose= f3 direct loose
