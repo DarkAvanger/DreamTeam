@@ -87,6 +87,7 @@
     <ClInclude Include="ModuleCollisions.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleFonts.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneLevel1.h" />
     <ClInclude Include="ModuleInput.h" />
@@ -136,6 +137,12 @@
     <ClCompile Include="SceneLevel6.cpp" />
     <ClCompile Include="StageSelect.cpp" />
     <ClCompile Include="Target.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Super Soukoban_DreamTeam.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Game\Assets\Sprites\bitbug_favicon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
