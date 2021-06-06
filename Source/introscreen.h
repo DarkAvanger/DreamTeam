@@ -32,12 +32,25 @@ public:
 	//iPoint logoposition;
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
-
-	Animation* currentAnimation = nullptr;
+	SDL_Texture* bgTexture1 = nullptr;
+	SDL_Texture* bgTexture2 = nullptr;
+	/*Animation* currentAnimation = nullptr;
 
 	Animation logo;
 
-	SDL_Rect logosprite = { 0,0,270,240 };
+	SDL_Rect logosprite = { 0,0,270,240 };*/
+	//Background animation
+	Animation black;
+
+	// Font credits index 
+	uint title = 000;
+	int titleFont = -1;
+	char titleText[10] = { "\0" };
+
+	// Font names index 
+	uint names = 000;
+	int namesFont = -1;
+	char namesText[10] = { "\0" };
 };
 
 #endif
