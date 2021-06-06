@@ -32,6 +32,9 @@ Design QA
 
 Management
 
+# Play the game release here
+
+https://github.com/DarkAvanger/DreamTeam/releases/tag/v1.0
 
 # Controls
 
