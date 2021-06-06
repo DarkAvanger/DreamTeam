@@ -4,7 +4,7 @@ Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by P
 
 The objective of the game is to push crates or boxes around a maze and put them in their designated storage area, marked by a pink dot, using logic since there is a maximum amount of steps per level that the players can take. The goal of all these tasks is to save up enough money to buy a new fancy car and impress the girl he likes, who unfortunately goes off with a guy in a nicer car.
 
-![image](https://user-images.githubusercontent.com/73582921/120871795-ffac8b00-c59c-11eb-9b16-f4a87a3392bc.png)
+![image](https://github.com/DarkAvanger/DreamTeam/blob/main/Wiki_Resorce/Wiki_Images/g9eP8Eip.png)
 
 # Our Team
 
