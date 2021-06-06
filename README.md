@@ -1,5 +1,5 @@
 # Super Soukoban
-Videogame Development - Project 1 - Our first amazing game
+🎮Videogame Development - Project 1 - Our first amazing game 🕹
 
 ## Our project
 https://github.com/DarkAvanger/DreamTeam
