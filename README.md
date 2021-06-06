@@ -8,6 +8,12 @@ https://darkavanger.github.io/DreamTeam/
 ## Description
 Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by Pack-In-Video, which was released in Japan in 1993.
 
+## Developers
+ - Hang Xue - Main Code
+ - Sofia Liles - Design/QA
+ - Angel Consola - Art,Code
+ - Marta Llurba - Management
+ 
 ## Key Features
 
 ### Intro Animation
@@ -63,12 +69,6 @@ Super Soukoban is a Puzzle game, developed by Thinking Rabbit and published by P
 -Press "D" to go right
 
 (You can also use gamepad to play this game.）
-
-### Developers
- - Hang Xue - Main Code
- - Sofia Liles - Design/QA
- - Angel Consola - Art,Code
- - Marta Llurba - Management
 
 ## License
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
