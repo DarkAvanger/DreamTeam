@@ -14,9 +14,9 @@ space -> skip the animation
 WASD -> move player
  
 ## Developers
+ - Hang Xue - Main Code
  - Sofia Liles - Design/QA
- - Angel Consola - Art
- - Hang Xue - Code
+ - Angel Consola - Art,Code
  - Marta Llurba - Management
 
 ## License
