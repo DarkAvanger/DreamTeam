@@ -41,10 +41,8 @@ https://github.com/DarkAvanger/DreamTeam/releases/tag/v1.0
 https://github.com/DarkAvanger/DreamTeam
 ## For more information, See our wiki  here
 https://github.com/DarkAvanger/DreamTeam/wiki
-
+## See our gameplay video
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=0xyonW3UsrE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</p>
 
 *Super Soukoban Alpha v1.0 gameplay video*
 
