@@ -115,6 +115,7 @@ Update_Status SceneLevel1::Update()
 			completeCount++;
 		}
 	}
+	
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || pad.a)
 	{
 		dWin = false;
